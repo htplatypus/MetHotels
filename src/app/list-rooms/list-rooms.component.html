@@ -1,0 +1,22 @@
+<form class="ui large form segment">
+    <h3 class="ui header">Add a room:</h3>
+   
+    <div class="field">
+      <label for="number">number:</label>
+      <input name="number" id="number" #number>
+    </div>
+    <div class="field">
+      <label for="price">price:</label>
+      <input name="price" id="price" #price>   
+    </div>
+    <button (click)="addRoom(number, price)" class="ui positive right floated button">
+      Add room
+    </button> 
+  </form>
+
+  <div *ngIf="rooms.length > 0">
+    <h3>Rooms:</h3>
+    <div *ngFor="let room of rooms">
+      <app-item-rooms [room]="room"></app-item-rooms>
+    </div>
+  </div>

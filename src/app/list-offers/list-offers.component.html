@@ -1,0 +1,6 @@
+<div *ngIf="offers.length > 0">
+    <h3>Offers:</h3>
+    <div *ngFor="let offer of offers">
+      <app-item-offers [offerDescription]="offer"></app-item-offers>
+    </div>
+  </div>

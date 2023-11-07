@@ -1,0 +1,6 @@
+*, body{
+    text-align: center;
+    padding-top: 150px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: repeating-linear-gradient(lightskyblue, rgb(255, 255, 255) 100%);
+}
