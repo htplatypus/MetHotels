@@ -1,0 +1,28 @@
+* {
+    font-family: Arial;
+}
+
+.addRoom {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.field {
+    padding-bottom: 10px;
+}
+
+.button {
+    width: 100px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#price {
+    width: 200px;
+}
+
+#number {
+    width: 173px;
+}

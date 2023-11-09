@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Room } from 'src/app/room.model';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -19,11 +20,25 @@ export class ListRoomsComponent {
   constructor() {
   }
 
-  addRoom(number: HTMLInputElement, price: HTMLInputElement): boolean {
-    console.log(`Adding room with name: ${number.value} and price: ${price.value}`);
-    this.rooms.push(new Room(number.value, Number(price.value)));
-    number.value = '';
-    price.value = '';
-    return false;
-}
+  addRoom(f:NgForm, number: HTMLInputElement, price: HTMLInputElement, minibar: HTMLInputElement, spa: HTMLInputElement) {
+    if(f.valid){
+      let calculatedPrice : number = (Number(price.value));
+
+      if(minibar.checked){
+        calculatedPrice = calculatedPrice + 10;
+      }
+      if (spa.checked) {
+        calculatedPrice = calculatedPrice + 27;
+      }
+
+      console.log(`Adding room with name: ${number.value} and price: ${calculatedPrice}`);
+      this.rooms.push(new Room(number.value, calculatedPrice));
+      number.value = '';
+      price.value = '';
+    }
+    else {
+      console.log("Form not validated!");
+    }
+
+  }
 }

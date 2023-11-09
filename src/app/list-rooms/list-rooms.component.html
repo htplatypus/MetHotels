@@ -1,18 +1,39 @@
-<form class="ui large form segment">
+<div class="addRoom">
+  <form class="ui large form segment" #formRef="ngForm" (ngSubmit)="addRoom(formRef,number,price,minibar,spa)" novalidate>
     <h3 class="ui header">Add a room:</h3>
-   
+    
     <div class="field">
-      <label for="number">number:</label>
-      <input name="number" id="number" #number>
+        <label for="number">Room ID: </label>
+        <input name="number" id="number" #number required minlength="6" #numberValidation="ngModel" ngModel> 
     </div>
     <div class="field">
-      <label for="price">price:</label>
-      <input name="price" id="price" #price>   
+        <label for="price">Price: </label>
+        <input name="price" id="price" #price required #priceValidation="ngModel" ngModel>   
     </div>
-    <button (click)="addRoom(number, price)" class="ui positive right floated button">
+    <button class="ui positive right floated button">
       Add room
     </button> 
+    <div class="field">
+      <label for="minibar">(10) Minibar:</label>
+      <input name="minibar" id="minibar" #minibar ngModel type="checkbox">   
+    </div>
+    <div class="field">
+      <label for="minibar">(27) Premium Spa Access:</label>
+      <input name="minibar" id="minibar" #spa ngModel type="checkbox">   
+    </div>
   </form>
+
+  <div class="error" *ngIf="numberValidation.dirty || priceValidation.dirty">
+    <div *ngIf="numberValidation.errors?.['required']">ID is required.</div>
+    <div *ngIf="numberValidation.errors?.['minlength']">ID must be 6 characters minimum.</div>
+    <div *ngIf="priceValidation.errors?.['required']">Price is required.</div>
+  </div>
+
+  <div class="message">
+    <div *ngIf="spa.checked">Added Premium Spa Access for 27.</div>
+    <div *ngIf="minibar.checked">Added Minibar Access for 10.</div>
+  </div>
+</div>
 
   <div *ngIf="rooms.length > 0">
     <h3>Rooms:</h3>
@@ -20,3 +41,4 @@
       <app-item-rooms [room]="room"></app-item-rooms>
     </div>
   </div>
+

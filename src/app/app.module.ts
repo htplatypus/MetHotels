@@ -9,6 +9,7 @@ import { OffersComponent } from './list-offers/list-offers.component';
 import { AboutComponent } from './about/about.component';
 import { ItemRoomsComponent } from './item-rooms/item-rooms.component';
 import { ItemOffersComponent } from './item-offers/item-offers.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { ItemOffersComponent } from './item-offers/item-offers.component';
     OffersComponent,
     AboutComponent,
     ItemRoomsComponent,
-    ItemOffersComponent
+    ItemOffersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
