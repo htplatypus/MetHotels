@@ -11,9 +11,9 @@ import { NgForm } from '@angular/forms';
 export class ListRoomsComponent {
 
   rooms: Room[] = [      
-    new Room('0552',75),
-    new Room('4998',155),
-    new Room('186',50)
+    new Room('0552',75, true, true),
+    new Room('4998',155, true, false),
+    new Room('186',50, false, false)
   ];
 
 
@@ -24,15 +24,9 @@ export class ListRoomsComponent {
     if(f.valid){
       let calculatedPrice : number = (Number(price.value));
 
-      if(minibar.checked){
-        calculatedPrice = calculatedPrice + 10;
-      }
-      if (spa.checked) {
-        calculatedPrice = calculatedPrice + 27;
-      }
 
       console.log(`Adding room with name: ${number.value} and price: ${calculatedPrice}`);
-      this.rooms.push(new Room(number.value, calculatedPrice));
+      this.rooms.push(new Room(number.value, Number(price.value), minibar.checked, spa.checked));
       number.value = '';
       price.value = '';
     }

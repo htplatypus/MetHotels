@@ -14,11 +14,11 @@
       Add room
     </button> 
     <div class="field">
-      <label for="minibar">(10) Minibar:</label>
+      <label for="minibar">(5€) Minibar:</label>
       <input name="minibar" id="minibar" #minibar ngModel type="checkbox">   
     </div>
     <div class="field">
-      <label for="minibar">(27) Premium Spa Access:</label>
+      <label for="minibar">(7.5€) Premium Spa Access:</label>
       <input name="minibar" id="minibar" #spa ngModel type="checkbox">   
     </div>
   </form>
@@ -30,8 +30,8 @@
   </div>
 
   <div class="message">
-    <div *ngIf="spa.checked">Added Premium Spa Access for 27.</div>
-    <div *ngIf="minibar.checked">Added Minibar Access for 10.</div>
+    <div *ngIf="spa.checked">Added Premium Spa Access for 7.5€ per night..</div>
+    <div *ngIf="minibar.checked">Added Minibar Access for 5€ per night.</div>
   </div>
 </div>
 

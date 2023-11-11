@@ -2,5 +2,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: medium;
     background-color: rgb(217, 239, 246);
-    width: 500px;
+}
+
+.field {
+    width: 200px;
+    padding: 10px;
 }
