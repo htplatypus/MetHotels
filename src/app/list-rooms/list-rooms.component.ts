@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Room } from 'src/app/room.model';
 import { NgForm } from '@angular/forms';
+import { RoomDBService } from '../RoomDBService/room-db.service';
 
 
 @Component({
@@ -8,16 +9,16 @@ import { NgForm } from '@angular/forms';
   templateUrl: './list-rooms.component.html',
   styleUrls: ['./list-rooms.component.css']
 })
-export class ListRoomsComponent {
+export class ListRoomsComponent implements OnInit{
 
-  rooms: Room[] = [      
-    new Room('0552',75, true, true),
-    new Room('4998',155, true, false),
-    new Room('186',50, false, false)
-  ];
+  rooms: Room[] = [];
 
-
-  constructor() {
+  constructor(private roomDBService: RoomDBService) {
+  }
+  
+  ngOnInit(): void {
+    this.roomDBService.getAllRooms().subscribe(data => { this.rooms = data; }); //returns observable, must sub
+    console.log(this.rooms);
   }
 
   addRoom(f:NgForm, number: HTMLInputElement, price: HTMLInputElement, minibar: HTMLInputElement, spa: HTMLInputElement) {
@@ -26,7 +27,8 @@ export class ListRoomsComponent {
 
 
       console.log(`Adding room with name: ${number.value} and price: ${calculatedPrice}`);
-      this.rooms.push(new Room(number.value, Number(price.value), minibar.checked, spa.checked));
+      let newRoom = new Room(number.value, Number(price.value), minibar.checked, spa.checked);
+      this.roomDBService.addRoom(newRoom);
       number.value = '';
       price.value = '';
     }

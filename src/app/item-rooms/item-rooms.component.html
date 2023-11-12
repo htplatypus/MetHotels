@@ -1,13 +1,15 @@
-<h1>Room number: {{ room.number }}</h1>
+<h1>Room number: {{ room.id }}</h1>
 <p>Price per night: {{ room.price }}€ | Minibar: {{ room.minibar }} | Spa: {{ room.spa }}</p>
 
 <form class="ui large form segment">
     <div class="field">
       <label for="nights">Nights:</label>
-      <input name="nights" id="nights" #minibar min="1" type="number" [(ngModel)]="selectedNights" (change)="calculatePrice()">   
+      <input name="nights" id="nights" #minibar min="1" type="number" [(ngModel)]="selectedNights" (change)="calculatePrice()">
 </div>
 </form>
 
 <p>Total Price: {{ totalPrice }}€ </p>
+<button (click)="deleteRoom()">Delete</button>   
+<a [routerLink]="['/modify', room.id]">Modify</a>
 <hr>
 

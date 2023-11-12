@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import { ItemRoomsComponent } from './item-rooms/item-rooms.component';
 import { ItemOffersComponent } from './item-offers/item-offers.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RoomModifierComponent } from './room-modifier/room-modifier.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ItemRoomsComponent,
     ItemOffersComponent,
+    RoomModifierComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

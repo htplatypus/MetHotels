@@ -1,0 +1,22 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "price": 65,
+      "minibar": true,
+      "spa": false
+    },
+    {
+      "id": 2,
+      "price": 100,
+      "minibar": false,
+      "spa": true
+    },
+    {
+      "id": 3,
+      "price": 35,
+      "minibar": true,
+      "spa": true
+    }
+  ]
+}

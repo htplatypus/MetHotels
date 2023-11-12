@@ -1,0 +1,23 @@
+<p>{{ id }}</p>
+
+<div>
+    <h2>Modify Room</h2>
+    <form (submit)="modifyRoom()">
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" [(ngModel)]="roomToUpdate.price" name="price" required>
+      </div>
+
+      <div>
+        <label for="minibar">Minibar:</label>
+        <input type="checkbox" id="minibar" [(ngModel)]="roomToUpdate.minibar" name="minibar" required>
+      </div>
+
+      <div>
+        <label for="spa">Spa:</label>
+        <input type="checkbox" id="spa" [(ngModel)]="roomToUpdate.spa" name="spa" required>
+      </div>
+
+      <button type="submit">Modify Room</button>
+    </form>
+  </div>

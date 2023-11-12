@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Room } from 'src/app/room.model';
-import { RoomServiceService } from '../room-service.service';
+import { RoomServiceService } from '../RoomService/room-service.service';
+import { RoomDBService } from '../RoomDBService/room-db.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-rooms',
@@ -12,7 +14,7 @@ export class ItemRoomsComponent implements OnInit{
   totalPrice : number = 0;
   selectedNights: number = 1;
 
-  constructor(private RoomServiceService: RoomServiceService) { //dependency injection
+  constructor(private RoomServiceService: RoomServiceService, private roomDBService : RoomDBService, private router: Router) { //dependency injection
     this.room = new Room('0451', 123, true, true);
   }
 
@@ -22,6 +24,11 @@ export class ItemRoomsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.calculatePrice();
+    this.calculatePrice();
+  }
+
+  deleteRoom(){
+    this.roomDBService.deleteRoom(Number(this.room.id));
+    console.log("Deleted room");
   }
 }
