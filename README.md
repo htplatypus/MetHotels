@@ -28,3 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 IMPORTANT !
 Use start chrome --user-data-dir="C://Chrome dev session" --disable-web-security to start chrome without cors.
+
+MetHotels uses Angular Router to enable navigation.
